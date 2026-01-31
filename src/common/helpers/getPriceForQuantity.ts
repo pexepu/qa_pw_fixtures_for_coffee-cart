@@ -6,7 +6,8 @@ export const priceFormatStr = (unitPrice) => {
   return `$${unitPrice.toFixed(2)}`;
 };
 
-export const totalPriceFormatStr = (unitPrice, unitsNumber) => {
-  const total = unitPrice * unitsNumber;
+export const totalPriceFormatStr = (unitsNumber) => {
+  
+  const total = unitsNumber.reduce((sum, item) => sum + item.unitPrice * item.unitsNumber, 0);
   return `Total: $${total.toFixed(2)}`;
 };
